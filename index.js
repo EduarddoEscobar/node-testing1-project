@@ -8,6 +8,13 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  const resObj = { ...obj };
+  for(let key in resObj){
+    if(typeof resObj[key] === 'string'){
+      resObj[key] = resObj[key].trim();
+    }
+  }
+  return resObj;
 }
 
 /**
