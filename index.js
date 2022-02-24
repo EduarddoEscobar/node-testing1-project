@@ -90,6 +90,8 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.seasons = ['summer', 'fall', 'winter', 'spring'];
+    this.currentSeason = 0;
   }
 
   /**
@@ -106,6 +108,9 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    let seasonToReturn = this.seasons[this.currentSeason++];
+    this.currentSeason > 3 ? this.currentSeason = 0 : this.currentSeason;
+    return seasonToReturn;
   }
 }
 
@@ -120,6 +125,8 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.name = name;
+    this.mpg = mpg;
   }
 
   /**
@@ -137,6 +144,9 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    this.tank -= distance / this.mpg;
+    this.odometer += this.tank <= 0 ? distance + (this.tank * this.mpg) : distance;
+    return this.odometer;
   }
 
   /**
