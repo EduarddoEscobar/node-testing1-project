@@ -27,6 +27,12 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  for(let key in obj){
+    if(typeof obj[key] === 'string'){
+      obj[key] = obj[key].trim();
+    }
+  }
+  return obj;
 }
 
 /**
@@ -39,6 +45,15 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  let currentHighest = 0;
+  for(let obj of integers){
+    for(let key in obj){
+      if(typeof obj[key] === 'number'){
+        currentHighest = currentHighest < obj[key] ? obj[key] : currentHighest;
+      }
+    }
+  }
+  return currentHighest;
 }
 
 class Counter {
@@ -48,6 +63,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.counter = initialNumber;
   }
 
   /**
@@ -64,6 +80,7 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    return this.counter - 1 >= 0 ? this.counter-- : this.counter;
   }
 }
 
