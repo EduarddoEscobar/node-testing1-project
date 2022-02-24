@@ -104,10 +104,19 @@ describe('[Exercise 6] Car', () => {
   })
 
   test('[16] driving the car uses gas', () => {
-
+    focus.drive(120);
+    expect(focus.tank).toBe(16);
   })
-  // test('[17] refueling allows to keep driving', () => {})
-  // test('[18] adding fuel to a full tank has no effect', () => {})
+  test('[17] refueling allows to keep driving', () => {
+    expect(focus.drive(600)).toBe(600);
+    expect(focus.drive(1)).toBe(600);
+    expect(focus.refuel(99)).toBe(600);
+    expect(focus.drive(600)).toBe(1200);
+  })
+  test('[18] adding fuel to a full tank has no effect', () => {
+    expect(focus.refuel(99)).toBe(600);
+    expect(focus.refuel(99)).toBe(600);
+  })
 })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {

@@ -125,6 +125,7 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.tankSize = tankSize;
     this.name = name;
     this.mpg = mpg;
   }
@@ -162,6 +163,8 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    this.tank = this.tank + gallons > this.tankSize ? this.tankSize: this.tank + gallons;
+    return this.tank * this.mpg;
   }
 }
 
